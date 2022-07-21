@@ -56,7 +56,9 @@ for (let i = 0; i < 2 ; i++) {
         if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50){
         appData.expenses[a] = b; // здесь мы задаем свойству expenses значение переменной а , которая должна получить ответ от переменной b
          } //а с помощью цикла мы вызываем данные вопросы два раза
-        //  else ()
+         else {
+            i = i - 1;
+        }
          } 
 
 // let i = 0;
@@ -81,18 +83,45 @@ for (let i = 0; i < 2 ; i++) {
 //     i++}
 //     } while(i<2) // Этот цикл заставляет вписать значения, так как он работает, пока значения не будут вписаны
 
-appData.moneyPerDay = appData.budget / 30;
-
-alert ('Ваш дневной бюджет составляет :' + appData.moneyPerDay);
-
-if (appData.moneyPerDay < 100) {
-    console.log('Ебать ты бичара')
-} else if (appData.moneyPerDay >= 100 && appData.moneyPerDay < 2000) {
-    console.log('Не плохо, братик')
-} else if (appData.moneyPerDay >= 2000) {
-    console.log('хуя ты ферзь')
-} else {
-    console.log ('Неизвестная ошибка')
+function detectDayBudget (){
+    appData.moneyPerDay = appData.budget / 30;
+    alert ('Ваш дневной бюджет составляет :' + appData.moneyPerDay);
 }
+
+detectDayBudget();
+
+
+
+function detectLevel(){
+    if (appData.moneyPerDay < 100) {
+        console.log('Ебать ты бичара')
+    } else if (appData.moneyPerDay >= 100 && appData.moneyPerDay < 2000) {
+        console.log('Не плохо, братик')
+    } else if (appData.moneyPerDay >= 2000) {
+        console.log('хуя ты ферзь')
+    } else {
+        console.log ('Неизвестная ошибка')
+    }
+}
+
+detectLevel();
+
+function chooseOptExpenses(){
+    for (let i = 1; i <= 3 ; i++){
+        let c = prompt(`${i}:`);
+
+            if ((typeof (c)) === 'string' && (typeof (c)) != null && c != '' && c.length < 50){
+        appData.optionalExpenses[i]=c;
+        } else {
+            i = i - 1;
+        } ;
+    }
+}
+
+chooseOptExpenses();
+
+
+
+
 
 
